@@ -121,7 +121,41 @@ const deleteDonorByUserId = async (req, res) => {
 
 }
 
+const putDonorsByUserId = async (req, res) => {
+    try {
+        const { userid } = req.params;
+
+        const {
+            name,
+            mobile,
+            address,
+            bloodGroup
+        } = req.body;
+
+        const updateDonor = await Donor.updateOne({userid:userid},{
+            name:name,
+            mobile:mobile,
+            address:address,
+            bloodGroup:bloodGroup
+        })
+
+        return res.status(201).json({
+            success:true,
+            data:updateDonor,
+            message:"Data updated"
+        })
+
+    }
+
+    catch (error) {
+        return res.status(400).json({
+            success: false,
+            message: error.message
+        })
+    }
+}
+
 
 export {
-    getHome, postDonors, getDonors, getDonorByUserId, deleteDonorByUserId
+    getHome, postDonors, getDonors, getDonorByUserId, deleteDonorByUserId, putDonorsByUserId
 }
