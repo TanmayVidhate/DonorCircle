@@ -8,6 +8,21 @@ const getHome = (req,res)=>{
     })
 }
 
+const getDonors = async (req, res) => {
+    try {
+        const saveData = await Donor.find();
+
+        res.status(200).json({
+            success: true,
+            data: saveData,
+            message: "Data fetch"
+        })
+    }
+    catch (error) {
+        console.log(error)
+    }
+}
+
 const postDonors =  async (req, res) => {
 
     try {
@@ -33,6 +48,8 @@ const postDonors =  async (req, res) => {
     }
 }
 
+
+
 export{
-    getHome,postDonors
+    getHome,postDonors,getDonors
 }

@@ -6,7 +6,8 @@ import mongoose from 'mongoose';
 
 import { getHealth } from './controllers/Health.js';
 import { getInvaild } from './controllers/Invalid.js';
-import { getHome,postDonors } from './controllers/DonorCircle.js';
+import { getHome, postDonors } from './controllers/DonorCircle.js';
+import Donor from './models/Donor.js';
 
 
 const app = express();
@@ -29,7 +30,9 @@ app.get("/health", getHealth)
 //App API's
 app.get("/", getHome)
 
-app.post("/Donors",postDonors)
+app.get("/Donors", getDonors)
+
+app.post("/Donors", postDonors)
 
 //Invalid API's
 app.get("*", getInvaild)
