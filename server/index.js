@@ -6,8 +6,8 @@ import mongoose from 'mongoose';
 
 import { getHealth } from './controllers/Health.js';
 import { getInvaild } from './controllers/Invalid.js';
-import { getHome } from './controllers/DonorCircle.js';
-import Donor from './models/Donor.js';
+import { getHome,postDonors } from './controllers/DonorCircle.js';
+
 
 const app = express();
 
@@ -29,34 +29,7 @@ app.get("/health", getHealth)
 //App API's
 app.get("/", getHome)
 
-app.post("/Donors", async (req, res) => {
-
-    try {
-        const { name, mobile, address, bloodGroup } = req.body;
-
-        
-
-        const newData = new Donor({
-            name: name,
-            mobile: mobile,
-            address: address,
-            bloodGroup: bloodGroup
-        });
-
-        const savedData = await newData.save();
-
-        res.status(201).json({
-            success: true,
-            data: savedData,
-            message: "Donor data fetch "
-        })
-    }
-    catch(error)
-    {
-        console.log(error);
-    }
-    
-})
+app.post("/Donors",postDonors)
 
 //Invalid API's
 app.get("*", getInvaild)
