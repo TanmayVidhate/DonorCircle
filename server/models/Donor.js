@@ -1,6 +1,11 @@
 import { model, Schema } from "mongoose";
 
-const stru = new Schema();
+const stru = new Schema({
+    name:String,
+    mobile:Number,
+    address:String,
+    bloodGroup:String
+});
 
 const Donor = model('Donor',stru);
 
