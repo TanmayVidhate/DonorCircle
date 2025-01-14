@@ -6,7 +6,7 @@ import mongoose from 'mongoose';
 
 import { getHealth } from './controllers/Health.js';
 import { getInvaild } from './controllers/Invalid.js';
-import { getHome, postDonors } from './controllers/DonorCircle.js';
+import { getHome, postDonors,getDonors } from './controllers/DonorCircle.js';
 import Donor from './models/Donor.js';
 
 
