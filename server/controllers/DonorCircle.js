@@ -87,8 +87,41 @@ const getDonorByUserId = async (req, res) => {
     }
 }
 
+const deleteDonorByUserId = async (req, res) => {
+
+    try {
+        const { userid } = req.params;
+
+        const record = await Donor.findOne({ userid: userid });
+
+        if (record) {
+
+            // console.log(record)
+            const deletedData = await Donor.deleteOne({ userid: userid })
+
+            return res.status(200).json({
+                sucess: true,
+                data: deletedData,
+                message: "Data deleted"
+            })
+        }
+        else {
+            return res.status(404).json({
+                sucess: false,
+                message: "Data not found"
+            })
+        }
+    }
+    catch (error) {
+        return res.status(400).json({
+            success: false,
+            message: error.message
+        })
+    }
+
+}
 
 
 export {
-    getHome, postDonors, getDonors, getDonorByUserId
+    getHome, postDonors, getDonors, getDonorByUserId, deleteDonorByUserId
 }
