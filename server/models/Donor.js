@@ -1,6 +1,7 @@
 import { model, Schema } from "mongoose";
 
 const stru = new Schema({
+    userid:Number,
     name:String,
     mobile:Number,
     address:String,

@@ -1,10 +1,10 @@
 import Donor from '../models/Donor.js';
 
 
-const getHome = (req,res)=>{
+const getHome = (req, res) => {
     res.status(200).json({
-        success:true,
-        message:"Welcom To DonorCircle"
+        success: true,
+        message: "Welcom To DonorCircle"
     })
 }
 
@@ -19,22 +19,27 @@ const getDonors = async (req, res) => {
         })
     }
     catch (error) {
-        console.log(error)
+        return res.status(400).json({
+            success: true,
+            message: error.message
+        })
     }
 }
 
-const postDonors =  async (req, res) => {
+const postDonors = async (req, res) => {
 
     try {
-        const { name, mobile, address, bloodGroup } = req.body;
+        const { userid, name, mobile, address, bloodGroup } = req.body;
 
-        if (!name || !mobile || !address || !bloodGroup) {
+        //api validations
+        if (!userid || !name || !mobile || !address || !bloodGroup) {
             const missingterm = [];
+            if (!userid) missingterm.push("User Id");
             if (!name) missingterm.push("Name");
             if (!mobile) missingterm.push("Mobile");
             if (!address) missingterm.push("Address");
             if (!bloodGroup) missingterm.push("Blood Group");
-        
+
             return res.status(400).json({
                 success: false,
                 message: `Please enter the following fields: ${missingterm.join(", ")}`
@@ -43,6 +48,7 @@ const postDonors =  async (req, res) => {
 
 
         const newData = new Donor({
+            userid: userid,
             name: name,
             mobile: mobile,
             address: address,
@@ -58,12 +64,15 @@ const postDonors =  async (req, res) => {
         })
     }
     catch (error) {
-        console.log(error);
+        return res.status(400).json({
+            success: false,
+            message: error.message
+        })
     }
 }
 
 
 
-export{
-    getHome,postDonors,getDonors
+export {
+    getHome, postDonors, getDonors
 }
