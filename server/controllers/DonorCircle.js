@@ -77,17 +77,7 @@ const getDonorByUserId = async (req, res) => {
 
         const record = await Donor.findOne({ userid: userid });
 
-        if (record)
-            return res.status(200).json({
-                success: true,
-                data: record,
-                message: "Data Get"
-            })
-        else
-            return res.status(400).json({
-                success: false,
-                message: "Data Not Found"
-            })
+        (record) ? res.status(200).json({ success: true, data: record, message: "Data Get" }) : res.status(400).json({ success: false, message: "Data Not Found" })
     }
     catch (error) {
         return res.status(400).json({
