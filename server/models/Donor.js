@@ -5,7 +5,7 @@ const stru = new Schema({
     mobile:Number,
     address:String,
     bloodGroup:String
-});
+},{timestamps: true});
 
 const Donor = model('Donor',stru);
 

@@ -40,7 +40,7 @@ const postDonors =  async (req, res) => {
         res.status(201).json({
             success: true,
             data: savedData,
-            message: "Donor data fetch "
+            message: "Donor data added.. "
         })
     }
     catch (error) {
