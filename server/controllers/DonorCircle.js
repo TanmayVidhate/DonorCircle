@@ -1,4 +1,4 @@
-import Donor from './models/Donor.js';
+import Donor from '../models/Donor.js';
 
 
 const getHome = (req,res)=>{
