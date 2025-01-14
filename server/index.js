@@ -6,7 +6,7 @@ import mongoose from 'mongoose';
 
 import { getHealth } from './controllers/Health.js';
 import { getInvaild } from './controllers/Invalid.js';
-import { getHome, postDonors, getDonors, getDonorByUserId, deleteDonorByUserId, putDonorsByUserId } from './controllers/DonorCircle.js';
+import { getHome, postDonors, getDonors, getDonorByUserId, deleteDonorByUserId, putDonorsByUserId, patchDonorByUserId } from './controllers/DonorCircle.js';
 import Donor from './models/Donor.js';
 
 
@@ -40,6 +40,8 @@ app.get("/Donors/:userid", getDonorByUserId)
 app.delete("/Donors/:userid",deleteDonorByUserId)
 
 app.put("/Donors/:userid",putDonorsByUserId)
+
+app.patch("/address/Donors/:userid",patchDonorByUserId)
 
 //Invalid API's
 app.get("*", getInvaild)

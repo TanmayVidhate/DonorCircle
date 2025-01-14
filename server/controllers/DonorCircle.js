@@ -55,7 +55,7 @@ const postDonors = async (req, res) => {
             bloodGroup: bloodGroup
         });
 
-        const savedData = await newData.save();
+        const savedData = await newData.save().select("-__v -createdAt -updatedAt");
 
         res.status(201).json({
             success: true,
@@ -132,19 +132,18 @@ const putDonorsByUserId = async (req, res) => {
             bloodGroup
         } = req.body;
 
-        const updateDonor = await Donor.updateOne({userid:userid},{
-            name:name,
-            mobile:mobile,
-            address:address,
-            bloodGroup:bloodGroup
+        const updateDonor = await Donor.updateOne({ userid: userid }, {
+            name: name,
+            mobile: mobile,
+            address: address,
+            bloodGroup: bloodGroup
         })
 
         return res.status(201).json({
-            success:true,
-            data:updateDonor,
-            message:"Data updated"
+            success: true,
+            data: updateDonor,
+            message: "Data updated"
         })
-
     }
 
     catch (error) {
@@ -155,7 +154,47 @@ const putDonorsByUserId = async (req, res) => {
     }
 }
 
+const patchDonorByUserId = async (req, res) => {
+    try {
+        const { userid } = req.params;
+
+        const { address } = req.body;
+
+        const record = await Donor.findOne({ userid: userid });
+
+        console.log(record);
+
+        if (record) {
+            const Donordata = await Donor.updateOne({ userid: userid }, { address: address }).select("-__v -createdAt -updatedAt");
+
+            if (Donordata)
+                return res.status(200).json({
+                    success: true,
+                    data: Donordata,
+                    message: "Address Updated"
+                })
+            else
+                return res.status(400).json({
+                    success: false,
+                    data: null,
+                    message: "Data not found"
+                })
+        }
+        else {
+            return res.status(404).json({
+                success: false,
+                message: "Data not found"
+            })
+        }
+    }
+    catch (error) {
+        return res.status(400).json({
+            success: false,
+            message: error.message
+        })
+    }
+}
 
 export {
-    getHome, postDonors, getDonors, getDonorByUserId, deleteDonorByUserId, putDonorsByUserId
+    getHome, postDonors, getDonors, getDonorByUserId, deleteDonorByUserId, putDonorsByUserId, patchDonorByUserId
 }
