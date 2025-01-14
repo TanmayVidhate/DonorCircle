@@ -34,5 +34,5 @@ const postDonors =  async (req, res) => {
 }
 
 export{
-    getHome
+    getHome,postDonors
 }
