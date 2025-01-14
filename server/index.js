@@ -3,13 +3,25 @@ import dotenv from 'dotenv';
 dotenv.config();
 import cors from 'cors';
 
-const PORT = process.env.PORT || 5003;
+import { getHealth } from './controllers/Health.js';
+import { getInvaild } from './controllers/Invalid.js';
 
 const app = express();
+
 app.use(express.json());
 app.use(cors());
 
-app.listen(()=>{
-    console.log(`http://localhost:${PORT}`);
 
+
+app.get("/health",getHealth)
+
+
+
+app.get("*",getInvaild)
+
+
+const PORT = process.env.PORT || 5002 
+
+app.listen(PORT,()=>{
+    console.log(`http://localhost:${PORT}`);
 })
