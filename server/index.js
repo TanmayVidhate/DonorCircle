@@ -6,7 +6,7 @@ import mongoose from 'mongoose';
 
 import { getHealth } from './controllers/Health.js';
 import { getInvaild } from './controllers/Invalid.js';
-import { getHome, postDonors,getDonors } from './controllers/DonorCircle.js';
+import { getHome, postDonors,getDonors,getDonorByUserId } from './controllers/DonorCircle.js';
 import Donor from './models/Donor.js';
 
 
@@ -34,6 +34,8 @@ app.get("/", getHome)
 app.get("/Donors", getDonors)
 
 app.post("/Donors", postDonors)
+
+app.get("/Donors/:userid",getDonorByUserId)
 
 //Invalid API's
 app.get("*", getInvaild)

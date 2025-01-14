@@ -71,8 +71,34 @@ const postDonors = async (req, res) => {
     }
 }
 
+const getDonorByUserId = async (req, res) => {
+    try {
+        const { userid } = req.params;
+
+        const record = await Donor.findOne({ userid: userid });
+
+        if (record)
+            return res.status(200).json({
+                success: true,
+                data: record,
+                message: "Data Get"
+            })
+        else
+            return res.status(400).json({
+                success: false,
+                message: "Data Not Found"
+            })
+    }
+    catch (error) {
+        return res.status(400).json({
+            success: false,
+            message: error.message
+        })
+    }
+}
+
 
 
 export {
-    getHome, postDonors, getDonors
+    getHome, postDonors, getDonors, getDonorByUserId
 }
