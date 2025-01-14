@@ -12,11 +12,14 @@ app.use(express.json());
 app.use(cors());
 
 
-
+//health API's
 app.get("/health",getHealth)
 
+//
+app.get("/",getHome)
 
 
+//Invalid API's
 app.get("*",getInvaild)
 
 
