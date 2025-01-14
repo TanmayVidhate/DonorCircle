@@ -28,6 +28,20 @@ const postDonors =  async (req, res) => {
     try {
         const { name, mobile, address, bloodGroup } = req.body;
 
+        if (!name || !mobile || !address || !bloodGroup) {
+            const missingFields = [];
+            if (!name) missingFields.push("Name");
+            if (!mobile) missingFields.push("Mobile");
+            if (!address) missingFields.push("Address");
+            if (!bloodGroup) missingFields.push("Blood Group");
+        
+            return res.status(400).json({
+                success: false,
+                message: `Please enter the following fields: ${missingFields.join(", ")}`
+            });
+        }
+
+
         const newData = new Donor({
             name: name,
             mobile: mobile,
