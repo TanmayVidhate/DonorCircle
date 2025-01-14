@@ -10,7 +10,7 @@ const getHome = (req, res) => {
 
 const getDonors = async (req, res) => {
     try {
-        const saveData = await Donor.find();
+        const saveData = await Donor.find().select("-__v -createdAt -updatedAt");;
 
         res.status(200).json({
             success: true,
@@ -75,7 +75,7 @@ const getDonorByUserId = async (req, res) => {
     try {
         const { userid } = req.params;
 
-        const record = await Donor.findOne({ userid: userid });
+        const record = await Donor.findOne({ userid: userid }).select("-__v -createdAt -updatedAt");
 
         (record) ? res.status(200).json({ success: true, data: record, message: "Data Get" }) : res.status(400).json({ success: false, message: "Data Not Found" })
     }
@@ -92,12 +92,12 @@ const deleteDonorByUserId = async (req, res) => {
     try {
         const { userid } = req.params;
 
-        const record = await Donor.findOne({ userid: userid });
+        const record = await Donor.findOne({ userid: userid }).select("-__v -createdAt -updatedAt");
 
         if (record) {
 
             // console.log(record)
-            const deletedData = await Donor.deleteOne({ userid: userid })
+            const deletedData = await Donor.deleteOne({ userid: userid }).select("-__v -createdAt -updatedAt");
 
             return res.status(200).json({
                 sucess: true,
