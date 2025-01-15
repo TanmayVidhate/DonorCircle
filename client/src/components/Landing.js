@@ -1,15 +1,13 @@
 import React from 'react'
-import MainImag from '../assets/im'
+import Image1 from '../assets/image-1.avif';
+import Image2 from '../assets/image-2.avif';
+import Image3 from '../assets/image-3.avif';
+import MainImag from '../assets/main-image.avif';
+
 function Landing() {
     return (
         <>
-            <h2 className='text-center font-medium text-4xl m-2 text-primary'>DonorCircle</h2>
-
-            <h4 className='text-center text-2xl font-medium mt-1'>Save Lives,Donate Blood</h4>
-
-            <div className=''>
-                <img src={bloddImag} alt='image1'/>
-            </div>
+        <h1>Langing Page</h1>
         </>
     )
 }
