@@ -5,7 +5,6 @@ const getInvaild = (req,res)=>{
     })
 }
 
-
 export{
     getInvaild,
 }
