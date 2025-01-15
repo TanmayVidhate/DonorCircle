@@ -21,8 +21,11 @@ function Records() {
   }, [])
   return (
     <>
-      <div className='bg-secondary w-[100vw] h-[100vh] flex'>
-        <div className='  w-3/5 h-96 m-auto  p-2 overflow-y-scroll no-scrollbar '>
+      <div className='bg-secondary w-[100%] h-[100%]'>
+
+        <p className='text-center text-xl'>Show Records</p>
+        <div className='p-1 w-[100%] h-[100%] flex flex-wrap flex-row justify-center'>
+
           {
             donors.map((donor) => {
               const { userid, name, mobile } = donor
