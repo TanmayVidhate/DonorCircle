@@ -4,7 +4,8 @@ import './index.css';
 
 import {createBrowserRouter,RouterProvider}  from 'react-router-dom';
 
-import Landing from './components/Landing';
+import Landing from './views/Landing';
+import Records from './views/Records';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -12,6 +13,10 @@ const router =createBrowserRouter([
     {
         path:"/",
         element:<Landing/>
+    },
+    {
+        path:"/records",
+        element:<Records/>
     }
 ])
 root.render(
