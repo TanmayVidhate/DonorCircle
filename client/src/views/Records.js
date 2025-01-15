@@ -21,18 +21,17 @@ function Records() {
   }, [])
   return (
     <>
-      <div className=''>
-        <div className=''>
+      <div className='bg-secondary w-[100vw] h-[100vh] flex'>
+        <div className='  w-3/5 h-96 m-auto  p-2 overflow-y-scroll no-scrollbar '>
           {
             donors.map((donor) => {
-              const{userid,name,mobile} = donor
-              return <Cards userid={userid} name={name} mobile={mobile}  />
+              const { userid, name, mobile } = donor
+              return <Cards userid={userid} name={name} mobile={mobile} />
             })
           }
 
         </div>
       </div>
-
     </>
   )
 }
