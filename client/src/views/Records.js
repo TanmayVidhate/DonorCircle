@@ -23,16 +23,18 @@ function Records() {
     <>
       <div className='bg-secondary w-[100%] h-[100%]'>
 
-        <p className='text-center text-xl'>Show Records</p>
-        <div className='p-1 w-[100%] h-[100%] flex flex-wrap flex-row justify-center'>
+        <p className='text-center text-xl font-medium'>Show Records</p>
 
-          {
-            donors.map((donor) => {
-              const { userid, name, mobile } = donor
-              return <Cards userid={userid} name={name} mobile={mobile} />
-            })
-          }
+        <div className='m-10'>
 
+          <div className='w-[100%] h-[80vh] flex flex-wrap flex-row justify-center overflow-y-scroll'>
+            {
+              donors.map((donor) => {
+                const { userid, name, mobile } = donor
+                return <Cards userid={userid} name={name} mobile={mobile} />
+              })
+            }
+          </div>
         </div>
       </div>
     </>
