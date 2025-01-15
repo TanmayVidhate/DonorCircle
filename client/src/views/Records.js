@@ -27,7 +27,7 @@ function Records() {
 
         <div className='m-10'>
 
-          <div className='w-[100%] h-[80vh] flex flex-wrap flex-row justify-center overflow-y-scroll'>
+          <div className='w-[100%] h-[80vh] overflow-hidden flex flex-wrap flex-row justify-center overflow-y-scroll'>
             {
               donors.map((donor) => {
                 const { userid, name, mobile } = donor
