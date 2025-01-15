@@ -55,8 +55,7 @@ const postDonors = async (req, res) => {
             bloodGroup: bloodGroup
         });
 
-        const savedData = await newData.save().select("-__v -createdAt -updatedAt");
-
+        const savedData = await newData.save();
         res.status(201).json({
             success: true,
             data: savedData,
