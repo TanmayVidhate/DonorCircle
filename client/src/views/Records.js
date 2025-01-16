@@ -21,17 +21,17 @@ function Records() {
   }, [])
   return (
     <>
-      <div className='bg-secondary w-[100%] h-[100%]'>
+      <div className='bg-secondary w-[100vw] h-[100vh]'>
 
-        <p className='text-center text-xl font-medium'>Show Records</p>
+        <p className='text-center text-xl font-medium pt-5'>Show Records</p>
 
-        <div className='m-10'>
+        <div className='m-5'>
 
           <div className='w-[100%] h-[80vh] overflow-hidden flex flex-wrap flex-row justify-center overflow-y-scroll'>
             {
               donors.map((donor) => {
-                const { userid, name, mobile } = donor
-                return <Cards userid={userid} name={name} mobile={mobile} />
+                const { userid, name, mobile ,bloodGroup} = donor
+                return <Cards userid={userid} name={name} mobile={mobile} bloodGroup={bloodGroup} />
               })
             }
           </div>
