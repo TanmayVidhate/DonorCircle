@@ -17,7 +17,7 @@ function Form() {
     const AddFormData = async () => {
 
         try {
-            const response = await axios.post("http://localhost:5002/Donors",{
+            const response = await axios.post("http://localhost:5002/Donors", {
                 userid: formdata.userid,
                 name: formdata.name,
                 mobile: formdata.mobile,
@@ -25,7 +25,7 @@ function Form() {
                 bloodGroup: formdata.bloodGroup
             })
             console.log(response);
-            
+
             toast.loading("Data is storing ✍...")
 
             toast.success("Data Add 👍");

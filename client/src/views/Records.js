@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import { UserPlus } from 'lucide-react';
 
@@ -52,6 +52,8 @@ function Records() {
           navigate("/addinfo")
         }
         } />
+
+       
 
         <Toaster />
       </div>

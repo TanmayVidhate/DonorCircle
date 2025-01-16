@@ -1,5 +1,5 @@
 import React from 'react'
-import { Eye } from 'lucide-react';
+import { Eye, UserRoundPen, Trash2 } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 
@@ -15,8 +15,18 @@ function Cards({ userid = userid, name = name, mobile = mobile, bloodGroup = blo
                 <div className='font-normal text-base'><span >BloodGroup</span> : <span className='font-semibold'>{bloodGroup}</span></div>
 
 
-                <Eye size={25} className="hover:scale-125 duration-300 absolute right-5 top-3" onClick={() => {
+                <Eye size={25} className="hover:scale-125 duration-300 absolute right-5 top-5" onClick={() => {
                     navigate(`/details/${userid}`)
+                }
+                } />
+
+                <UserRoundPen size={25} className="absolute right-5 top-12  hover:scale-125 duration-300" onClick={() => {
+                    // navigate("/addinfo")
+                }
+                } />
+
+                <Trash2 size={25} className="absolute right-5 top-20  hover:scale-125 duration-300" onClick={() => {
+                    // navigate("/addinfo")
                 }
                 } />
             </div>
