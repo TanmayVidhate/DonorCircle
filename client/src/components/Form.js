@@ -24,7 +24,8 @@ function Form() {
                 address: formdata.address,
                 bloodGroup: formdata.bloodGroup
             })
-
+            console.log(response);
+            
             toast.loading("Data is storing ✍...")
 
             toast.success("Data Add 👍");
@@ -90,7 +91,7 @@ function Form() {
                     />
 
                     <Inputsfields
-                        type={'number'}
+                        type={'text'}
                         name={'t4'}
                         placeholder={'Enter Address'}
                         value={formdata.address}
