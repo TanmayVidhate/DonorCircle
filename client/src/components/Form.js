@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import Inputsfields from './Inputsfields'
+import axios from 'axios';
+import toast from 'react-hot-toast';
 
 
 function Form() {
@@ -11,6 +13,38 @@ function Form() {
         address: "",
         bloodGroup: ""
     });
+
+    const AddFormData = async () => {
+
+        try {
+            const response = await axios.post("http://localhost:5002/Donors",{
+                userid: formdata.userid,
+                name: formdata.name,
+                mobile: formdata.mobile,
+                address: formdata.address,
+                bloodGroup: formdata.bloodGroup
+            })
+
+            toast.loading("Data is storing ✍...")
+
+            toast.success("Data Add 👍");
+
+            setFormData({
+                userid: "",
+                name: "",
+                mobile: "",
+                address: "",
+                bloodGroup: ""
+            })
+            toast.dismiss();
+        }
+        catch (error) {
+            toast.dismiss();
+            toast.error(error?.response?.data?.message)
+        }
+    }
+
+
 
     return (
         <>
@@ -83,7 +117,9 @@ function Form() {
 
 
                     <button className='bg-red-600 p-1 m-3 w-3/4 rounded text-sm text-stone-100  cursor-pointer'
-
+                        onClick={(e) => {
+                            AddFormData();
+                        }}
 
                     >
                         Add
@@ -95,4 +131,4 @@ function Form() {
     )
 }
 
-export default Form
+export default Form;
