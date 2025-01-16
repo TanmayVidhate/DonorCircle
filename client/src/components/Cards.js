@@ -15,7 +15,7 @@ function Cards({ userid = userid, name = name, mobile = mobile, bloodGroup = blo
                 <div className='font-normal text-base'><span>BloodGroup</span> : <span>{bloodGroup}</span></div>
 
 
-                <Eye size={25} className="absolute right-5 top-3" onClick={() => {
+                <Eye size={25} className="hover:scale-125 duration-300 absolute right-5 top-3" onClick={() => {
                     navigate(`/details/${userid}`)
                 }
                 } />

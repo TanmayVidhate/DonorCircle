@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { House } from 'lucide-react';
-
+import toast, { Toaster } from "react-hot-toast";
 
 
 function Details() {
@@ -12,11 +12,15 @@ function Details() {
 
     const [donorDetails, setDonorDetails] = useState({})
     const LoadDetailOfDonors = async (userid) => {
+        toast.loading("Data is Loading ⌛...");
         try {
             const response = await axios.get(`http://localhost:5002/Donors/${userid}`);
+            toast.dismiss();
+            toast.success("Data is Fetch 👍");
             setDonorDetails(response?.data?.data);
         }
         catch (error) {
+            toast.dismiss();
             console.log(error?.response?.data?.message)
         }
     }
@@ -38,11 +42,12 @@ function Details() {
                     <p><span className='text-xl font-medium'>Address</span> : <span className='textxl'>{donorDetails.address}</span></p>
                 </div>
 
-                <House size={25} className=""
+                <House size={50} className="fixed right-10 bottom-10 hover:scale-125 duration-300"
                     onClick={() => {
                         navigate("/Records")
                     }}
                 />
+                <Toaster/>
             </div>
         </>
     )
