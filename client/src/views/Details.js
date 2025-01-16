@@ -1,8 +1,14 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
+import { House } from 'lucide-react';
+
+
+
 function Details() {
     const { userid } = useParams();
+
+    const navigate = useNavigate();
 
     const [donorDetails, setDonorDetails] = useState({})
     const LoadDetailOfDonors = async (userid) => {
@@ -31,6 +37,12 @@ function Details() {
                     <p><span className='text-xl font-medium'>BloodGroup</span> : <span className='textxl'>{donorDetails.bloodGroup}</span></p>
                     <p><span className='text-xl font-medium'>Address</span> : <span className='textxl'>{donorDetails.address}</span></p>
                 </div>
+
+                <House size={25} className=""
+                    onClick={() => {
+                        navigate("/Records")
+                    }}
+                />
             </div>
         </>
     )

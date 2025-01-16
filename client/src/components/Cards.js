@@ -2,6 +2,7 @@ import React from 'react'
 import { Eye } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
+
 function Cards({ userid = userid, name = name, mobile = mobile, bloodGroup = bloodGroup }) {
 
     const navigate = useNavigate();
