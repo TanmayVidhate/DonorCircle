@@ -47,7 +47,7 @@ function Details() {
                         navigate("/Records")
                     }}
                 />
-                <Toaster/>
+                <Toaster />
             </div>
         </>
     )

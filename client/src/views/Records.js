@@ -1,10 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
+import {useNavigate} from 'react-router-dom';
+
+import { UserPlus } from 'lucide-react';
 
 import Cards from '../components/Cards';
 
 function Records() {
+
+  const navigate = useNavigate();
 
   const [donors, setDonors] = useState([])
 
@@ -15,7 +20,7 @@ function Records() {
       toast.dismiss();
       toast.success("Data fetch 👍");
       setDonors(response?.data?.data);
-      
+
     }
     catch (error) {
       toast.dismiss();
@@ -34,7 +39,7 @@ function Records() {
 
         <div className='m-5'>
 
-          <div className='w-[100%] h-[80vh] overflow-hidden flex flex-wrap flex-row justify-center overflow-y-scroll'>
+          <div className='w-[95vw] h-[70vh] overflow-hidden flex flex-wrap m-auto flex-row items-center justify-center overflow-y-scroll'>
             {
               donors.map((donor, i) => {
                 const { userid, name, mobile, bloodGroup } = donor
@@ -43,6 +48,11 @@ function Records() {
             }
           </div>
         </div>
+        <UserPlus size={50} className="fixed right-10 bottom-10 hover:scale-125 duration-300" onClick={() => {
+          navigate("/addinfo")
+        }
+        } />
+
         <Toaster />
       </div>
     </>

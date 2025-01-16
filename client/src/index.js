@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Landing from './views/Landing';
 import Records from './views/Records';
 import Details from './views/Details';
+import Adddata from './views/Adddata';
 import PagenotFound from './views/PagenotFound';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
     {
         path: "/details/:userid",
         element: <Details />
+    },
+    {
+        path:"/addinfo",
+        element:<Adddata/>
     }, 
     {
         path: "*",
