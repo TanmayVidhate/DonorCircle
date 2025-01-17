@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom';
 import Inputsfields from '../components/Inputsfields';
 import axios from 'axios';
-import toast from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast';
 
 function EditInfo() {
     const { userid } = useParams();
@@ -17,16 +17,35 @@ function EditInfo() {
 
 
     useEffect(() => {
-        LoadDonorData(userid);
+        LoadDonorDataByUserid(userid);
     }, [userid]);
 
-    const LoadDonorData = async (userid) => {
+    const LoadDonorDataByUserid = async (userid) => {
         toast.loading("Data Loading... ⌛")
         try {
             toast.dismiss();
             const response = await axios.get(`http://localhost:5002/Donors/${userid}`)
             setFormData(response?.data?.data);
             toast.success("Data is Loading 👍");
+        }
+        catch (error) {
+            toast.dismiss();
+            toast.error(error?.response?.data?.message || error?.message)
+        }
+    }
+
+    const EditRecords = async (userid) => {
+        toast.loading("Loading Data... ⌛")
+        try {
+            toast.dismiss();
+            const response = await axios.put(`http://localhost:5002/Donors/${userid}`, {
+                name: formdata.name,
+                mobile: formdata.mobile,
+                address: formdata.address,
+                bloodGroup: formdata.bloodGroup
+            });
+            toast.success("Data Edit 👍");
+
         }
         catch (error) {
             toast.dismiss();
@@ -52,6 +71,7 @@ function EditInfo() {
                                 userid: e.target.value
                             })
                         }}
+                        disabled
                     />
 
                     <Inputsfields
@@ -110,7 +130,7 @@ function EditInfo() {
 
                     <button className='bg-red-600 p-1 m-3 w-3/4 rounded text-sm text-stone-100  cursor-pointer'
                         onClick={(e) => {
-
+                            EditRecords(userid);
                         }}
 
                     >
@@ -119,7 +139,7 @@ function EditInfo() {
 
                 </div>
 
-
+                <Toaster />
             </div>
         </>
     )
