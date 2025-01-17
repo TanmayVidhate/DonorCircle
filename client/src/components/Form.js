@@ -6,6 +6,8 @@ import toast from 'react-hot-toast';
 
 function Form() {
 
+    
+
     const [formdata, setFormData] = useState({
         userid: "",
         name: "",
@@ -45,8 +47,7 @@ function Form() {
         }
     }
 
-
-
+    
     return (
         <>
             <div className='bg-secondary mt-5 '>
@@ -55,7 +56,7 @@ function Form() {
                         type={'number'}
                         name={'t1'}
                         placeholder={'Enter Userid'}
-                        value={formdata.userid}
+                        value={formdata?.userid}
                         onChange={(e) => {
                             setFormData({
                                 ...formdata,
@@ -68,7 +69,7 @@ function Form() {
                         type={'text'}
                         name={'t2'}
                         placeholder={"Enter Name"}
-                        value={formdata.name}
+                        value={formdata?.name}
                         onChange={(e) => {
                             setFormData({
                                 ...formdata,
@@ -81,7 +82,7 @@ function Form() {
                         type={'number'}
                         name={'t3'}
                         placeholder={'Enter Mobile No'}
-                        value={formdata.mobile}
+                        value={formdata?.mobile}
                         onChange={(e) => {
                             setFormData({
                                 ...formdata,
@@ -94,7 +95,7 @@ function Form() {
                         type={'text'}
                         name={'t4'}
                         placeholder={'Enter Address'}
-                        value={formdata.address}
+                        value={formdata?.address}
                         onChange={(e) => {
                             setFormData({
                                 ...formdata,
@@ -107,7 +108,7 @@ function Form() {
                         type={'text'}
                         name={'t5'}
                         placeholder={'Enter BloodGroup'}
-                        value={formdata.bloodGroup}
+                        value={formdata?.bloodGroup}
                         onChange={(e) => {
                             setFormData({
                                 ...formdata,
@@ -118,7 +119,7 @@ function Form() {
 
 
                     <button className='bg-red-600 p-1 m-3 w-3/4 rounded text-sm text-stone-100  cursor-pointer'
-                        onClick={(e) => {
+                        onClick={() => {
                             AddFormData();
                         }}
 
