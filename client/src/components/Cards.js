@@ -1,9 +1,26 @@
 import React from 'react'
 import { Eye, UserRoundPen, Trash2 } from 'lucide-react';
+import toast, { Toaster } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 
-function Cards({ userid = userid, name = name, mobile = mobile, bloodGroup = bloodGroup }) {
+function Cards({ userid, name, mobile, bloodGroup }) {
+
+    const DeletedFunctions = async (userid) => {
+        toast.loading("Data is Loading... ⌛");
+
+        try {
+            await axios.delete(`http://localhost:5002/Donors/${userid}`);
+            toast.dismiss();
+            window.location.reload();
+            toast.success("Data Fetch");
+        }
+        catch (error) {
+            toast.dismiss();
+            toast.error(error?.response?.data?.message);
+        }
+    }
 
     const navigate = useNavigate();
     return (
@@ -26,10 +43,11 @@ function Cards({ userid = userid, name = name, mobile = mobile, bloodGroup = blo
                 } />
 
                 <Trash2 size={25} className="absolute right-5 top-20  hover:scale-125 duration-300" onClick={() => {
-                    // navigate("/addinfo")
+                    DeletedFunctions(userid);
                 }
                 } />
             </div>
+            <Toaster />
         </>
     )
 }
