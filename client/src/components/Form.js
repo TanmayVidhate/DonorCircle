@@ -6,7 +6,6 @@ import toast from 'react-hot-toast';
 
 function Form() {
 
-    
 
     const [formdata, setFormData] = useState({
         userid: "",
@@ -19,7 +18,7 @@ function Form() {
     const AddFormData = async () => {
 
         try {
-            const response = await axios.post("http://localhost:5002/Donors", {
+            const response = await axios.post(`${process.env.REACT_APP_URL}/Donors`, {
                 userid: formdata.userid,
                 name: formdata.name,
                 mobile: formdata.mobile,

@@ -11,7 +11,7 @@ function Cards({ userid, name, mobile, bloodGroup }) {
         toast.loading("Data is Loading... ⌛");
 
         try {
-            await axios.delete(`http://localhost:5002/Donors/${userid}`);
+            await axios.delete(`${process.env.REACT_APP_URL}/Donors/${userid}`);
             toast.dismiss();
             window.location.reload();
             toast.success("Data Fetch");

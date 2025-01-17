@@ -24,7 +24,7 @@ function EditInfo() {
         toast.loading("Data Loading... ⌛")
         try {
             toast.dismiss();
-            const response = await axios.get(`http://localhost:5002/Donors/${userid}`)
+            const response = await axios.get(`${process.env.REACT_APP_URL}/Donors/${userid}`)
             setFormData(response?.data?.data);
             toast.success("Data is Loading 👍");
         }
@@ -38,7 +38,7 @@ function EditInfo() {
         toast.loading("Loading Data... ⌛")
         try {
             toast.dismiss();
-            const response = await axios.put(`http://localhost:5002/Donors/${userid}`, {
+            const response = await axios.put(`${process.env.REACT_APP_URL}/Donors/${userid}`, {
                 name: formdata.name,
                 mobile: formdata.mobile,
                 address: formdata.address,
