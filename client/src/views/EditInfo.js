@@ -44,8 +44,16 @@ function EditInfo() {
                 address: formdata.address,
                 bloodGroup: formdata.bloodGroup
             });
-            toast.success("Data Edit 👍");
+            
 
+            setFormData({
+                userid: "",
+                name: "",
+                mobile: "",
+                address: "",
+                bloodGroup: ""
+            })
+            toast.success("Data Edit 👍");
         }
         catch (error) {
             toast.dismiss();
