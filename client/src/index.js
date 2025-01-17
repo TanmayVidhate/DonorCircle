@@ -8,6 +8,7 @@ import Landing from './views/Landing';
 import Records from './views/Records';
 import Details from './views/Details';
 import Adddata from './views/Adddata';
+import EditInfo from './views/EditInfo';
 import PagenotFound from './views/PagenotFound';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
@@ -26,12 +27,16 @@ const router = createBrowserRouter([
         element: <Details />
     },
     {
-        path:"/addinfo",
-        element:<Adddata/>
-    }, 
+        path: "/addinfo",
+        element: <Adddata />
+    },
+    {
+        path: "/editinfo/:userid",
+        element: <EditInfo />
+    },
     {
         path: "*",
-        element: <PagenotFound/>
+        element: <PagenotFound />
     }
 ])
 root.render(

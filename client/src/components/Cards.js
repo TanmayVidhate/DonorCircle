@@ -38,7 +38,7 @@ function Cards({ userid, name, mobile, bloodGroup }) {
                 } />
 
                 <UserRoundPen size={25} className="absolute right-5 top-12  hover:scale-125 duration-300" onClick={() => {
-                    // navigate("/addinfo")
+                    navigate(`/editinfo/${userid}`)
                 }
                 } />
 
