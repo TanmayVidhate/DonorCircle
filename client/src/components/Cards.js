@@ -7,7 +7,7 @@ import axios from 'axios';
 
 function Cards({ userid, name, mobile, bloodGroup }) {
 
-    const DeletedFunctions = async (userid) => {
+    const DeletedUserById = async (userid) => {
         toast.loading("Data is Loading... ⌛");
 
         try {
@@ -43,7 +43,7 @@ function Cards({ userid, name, mobile, bloodGroup }) {
                 } />
 
                 <Trash2 size={25} className="absolute right-5 top-20  hover:scale-125 duration-300" onClick={() => {
-                    DeletedFunctions(userid);
+                    DeletedUserById(userid);
                 }
                 } />
             </div>
