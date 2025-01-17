@@ -38,7 +38,7 @@ function EditInfo() {
         toast.loading("Loading Data... ⌛")
         try {
             toast.dismiss();
-            const response = await axios.put(`${process.env.REACT_APP_URL}/Donors/${userid}`, {
+            const response = await axios.put(`${process.env.REACT_APP_URL}/Donors/${userid}`,{
                 name: formdata.name,
                 mobile: formdata.mobile,
                 address: formdata.address,
