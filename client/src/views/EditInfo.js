@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import Inputsfields from '../components/Inputsfields';
+import { House } from 'lucide-react';
 import axios from 'axios';
 import toast, { Toaster } from 'react-hot-toast';
 
 function EditInfo() {
     const { userid } = useParams();
+
+    const navigate = useNavigate();
 
     const [formdata, setFormData] = useState({
         userid: "",
@@ -146,6 +149,12 @@ function EditInfo() {
                     </button>
 
                 </div>
+
+                <House size={50} className="fixed right-10 bottom-10 hover:scale-125 duration-300"
+                    onClick={() => {
+                        navigate("/")
+                    }}
+                />
 
                 <Toaster />
             </div>

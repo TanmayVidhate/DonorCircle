@@ -16,7 +16,7 @@ function Records() {
   const LoadData = async () => {
     toast.loading("Data is Loading ⌛...")
     try {
-      const response = await axios.get(`${process.env.REACT_APP_URL}/Donors`)
+      const response = await axios.get(`${process.env.REACT_APP_URL}/Donors`);
       toast.dismiss();
       toast.success("Data fetch 👍");
       setDonors(response?.data?.data);
@@ -52,8 +52,6 @@ function Records() {
           navigate("/addinfo")
         }
         } />
-
-
 
         <Toaster />
       </div>

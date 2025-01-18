@@ -44,7 +44,7 @@ function Details() {
 
                 <House size={50} className="fixed right-10 bottom-10 hover:scale-125 duration-300"
                     onClick={() => {
-                        navigate("/Records")
+                        navigate("/")
                     }}
                 />
                 <Toaster />
