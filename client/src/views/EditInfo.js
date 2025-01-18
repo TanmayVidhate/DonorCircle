@@ -56,7 +56,7 @@ function EditInfo() {
                 address: "",
                 bloodGroup: ""
             })
-            toast.success("Data Edit 👍");
+            toast.success(response?.data?.message);
         }
         catch (error) {
             toast.dismiss();

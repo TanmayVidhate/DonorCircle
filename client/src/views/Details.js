@@ -27,7 +27,7 @@ function Details() {
 
     useEffect(() => {
         LoadDetailOfDonors(userid);
-    }, [])
+    }, [userid])
 
     return (
         <>
