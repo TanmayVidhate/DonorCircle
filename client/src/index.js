@@ -4,7 +4,6 @@ import './index.css';
 
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 
-
 import Records from './views/Records';
 import Details from './views/Details';
 import Adddata from './views/Adddata';
