@@ -14,7 +14,7 @@ function Details() {
     const LoadDetailOfDonors = async (userid) => {
         toast.loading("Data is Loading ⌛...");
         try {
-            const response = await axios.get(`${process.env.REACT_APP_URL}/Donors/${userid}`);
+            const response = await axios.get(`${process.env.REACT_APP_API_URl}/Donors/${userid}`);
             toast.dismiss();
             toast.success("Data is Fetch 👍");
             setDonorDetails(response?.data?.data);
