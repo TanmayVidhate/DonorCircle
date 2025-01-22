@@ -34,13 +34,53 @@ function Details() {
             <div className='bg-secondary w-[100vw] h-[100vh]'>
                 <p className='text-center text-xl font-medium pt-5'>Details Page</p>
 
-                <div className='w-1/3 min-h-max text-justify cursor-pointer  bg-gray-200 m-auto p-5 rounded-xl mt-10 border-2 border-gray-600 border-solid hover:scale-[1.02] duration-300 hover:border-indigo-400 leading-10'>
+                {/* <div className='w-1/3 min-h-max text-justify cursor-pointer bg-white rounded-lg shadow-lg m-auto p-5 mt-10 border-2 border-gray-600 border-solid hover:scale-[1.02] duration-300 hover:border-indigo-400 leading-10'>
                     <p><span className='font-semibold'>Userid</span> : <span className='texxl'>{donorDetails.userid}</span></p>
                     <p><span className='font-semibold'>Name</span> : <span className='textxl'>{donorDetails.name}</span></p>
                     <p><span className='font-semibold'>Mobile No</span> : <span className='textxl'>{donorDetails.mobile}</span></p>
                     <p><span className='font-semibold'>BloodGroup</span> : <span className='textxl'>{donorDetails.bloodGroup}</span></p>
                     <p><span className='font-semibold'>Address</span> : <span className='textxl'>{donorDetails.address}</span></p>
+                </div> */}
+
+
+                <div class="max-w-xs mx-auto bg-white rounded-lg shadow-lg border-gray-600 border-solid overflow-hidden m-5 hover:scale-[1.02] duration-300 hover:border-indigo-400 cursor-pointer">
+                    <div class="bg-gray-100 px-4 py-2 text-center">
+                        <h2 class="text-lg font-medium text-gray-800">Donor Details</h2>
+                    </div>
+                    <div class="px-4 py-5 sm:p-6">
+                        <div class="flex flex-row items-center justify-between mb-6">
+                            <div class="flex flex-col items-start justify-between mb-6">
+                                <span class="text-sm font-medium text-gray-600">Userid</span>
+                                <span class="text-lg font-medium text-gray-800">{donorDetails.userid}</span>
+                            </div>
+                            <div class="flex flex-col items-start justify-between mb-6">
+                                <span class="text-sm font-medium text-gray-600">Name</span>
+                                <span class="text-lg font-medium text-gray-800">{donorDetails.name}</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-row items-center justify-between mb-6">
+                            <div class="flex flex-col items-start justify-between mb-6">
+                                <span class="text-sm font-medium text-gray-600">Mobile Number</span>
+                                <span class="text-lg font-medium text-gray-800">{donorDetails.mobile}</span>
+                            </div>
+
+                            <div class="flex flex-col items-start">
+                                <span class="text-sm font-medium text-gray-600">BloodGroup</span>
+                                <span class="text-lg font-medium text-gray-800">{donorDetails.bloodGroup}</span>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-row items-center justify-between mb-6">
+                            <div class="flex flex-col items-start">
+                                <span class="text-sm font-medium text-gray-600">Address</span>
+                                <span class="text-lg font-medium text-gray-800">{donorDetails.address}</span>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
+
 
                 <House size={50} className="fixed right-10 bottom-10 hover:scale-125 duration-300"
                     onClick={() => {

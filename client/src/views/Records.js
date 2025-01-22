@@ -30,7 +30,7 @@ function Records() {
 
   useEffect(() => {
     LoadData();
-  },[])
+  }, [])
   return (
     <>
       <div className='bg-secondary w-[100vw] h-[100vh]'>
@@ -48,11 +48,11 @@ function Records() {
             }
           </div>
         </div>
-        
+
         <UserPlus size={50} className="fixed right-10 bottom-10 hover:scale-125 duration-300" onClick={() => {
           navigate("/addinfo")
         }
-        }/>
+        } />
 
         <Toaster />
       </div>

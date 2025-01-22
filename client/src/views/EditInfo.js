@@ -70,7 +70,7 @@ function EditInfo() {
 
                 <p className='text-center text-xl font-medium pt-5'>Edit Records</p>
 
-                <div className='w-1/4 border-2 bg-gray-200  border-solid border-gray-600 m-auto flex flex-col justify-items-center items-center rounded '>
+                <div className='w-1/4 bg-white rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-5 m-auto mt-5 flex flex-col justify-items-center items-center '>
                     <Inputsfields
                         type={'number'}
                         name={'t1'}
@@ -139,7 +139,7 @@ function EditInfo() {
                     />
 
 
-                    <button className='bg-red-600 p-1 m-3 w-3/4 rounded text-sm text-stone-100  cursor-pointer'
+                    <button className='bg-red-600 m-3 w-full p-2.5 rounded text-sm text-stone-100  cursor-pointer'
                         onClick={(e) => {
                             EditRecords(userid);
                         }}
