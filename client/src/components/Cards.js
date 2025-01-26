@@ -25,7 +25,7 @@ function Cards({ userid, name, mobile, bloodGroup }) {
     const navigate = useNavigate();
     return (
         <>
-            <div className='bg-white rounded-lg shadow-lg w-1/4 min-h-max p-4 leading-10 shadow-gray-800 m-5 border-gray-600 border-solid hover:scale-[1.02] duration-300 hover:border-indigo-400 relative cursor-pointer' key={userid}>
+            <div className='bg-white rounded-lg  shadow-lg  min-h-max w-[300px] p-4 leading-10 shadow-gray-800 m-5 border-gray-600 border-solid hover:scale-[1.02] duration-300 hover:border-indigo-400 relative cursor-pointer' key={userid}>
                 <div className='font-normal text-base'><span>Userid</span> : <span className='font-semibold'>{userid}</span></div>
                 <div className='font-normal text-base'><span>Name</span> : <span>{name}</span></div>
                 <div className='font-normal text-base'><span>Mobile</span> : <span>{mobile}</span></div>

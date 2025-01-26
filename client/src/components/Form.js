@@ -49,7 +49,7 @@ function Form() {
 
     return (
         <>
-            <div className='w-1/4 bg-white rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-5 m-auto mt-8'>
+            <div className='w-80 bg-white rounded-lg shadow border md:mt-0 sm:max-w-md p-5 m-auto mt-8'>
                 <div className='w-full  bg-white rounded-lg m-auto flex flex-col justify-items-center items-center'>
                     <Inputsfields
                         type={'number'}
