@@ -9,9 +9,11 @@ function Cards({ userid, name, mobile, bloodGroup }) {
 
     const DeletedUserById = async (userid) => {
         toast.loading("Data is Loading... ⌛");
-
+        
         try {
-            await axios.delete(`${process.env.REACT_APP_URL}/Donors/${userid}`);
+            console.log("in try",userid)
+            const response = await axios.delete(`${process.env.REACT_APP_API_URl}/Donors/${userid}`);
+            console.log(response)
             toast.dismiss();
             window.location.reload();
             toast.success("Data Fetch");
