@@ -70,7 +70,7 @@ function EditInfo() {
 
                 <p className='text-center text-xl font-medium pt-5'>Edit Records</p>
 
-                <div className='w-1/4 bg-white rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-5 m-auto mt-5 flex flex-col justify-items-center items-center '>
+                <div className='w-[300px] bg-white rounded-lg shadow border md:mt-0 sm:max-w-md xl:p-5 m-auto mt-5 flex flex-col justify-items-center items-center '>
                     <Inputsfields
                         type={'number'}
                         name={'t1'}
@@ -150,7 +150,7 @@ function EditInfo() {
 
                 </div>
 
-                <House size={50} className="fixed right-10 bottom-10 hover:scale-125 duration-300"
+                <House size={50} className="fixed right-0 bottom-0 hover:scale-125 duration-300"
                     onClick={() => {
                         navigate("/")
                     }}
