@@ -18,7 +18,7 @@ function Form() {
     const AddFormData = async () => {
 
         try {
-            const response = await axios.post(`${process.env.REACT_APP_URL}/Donors`, {
+            const response = await axios.post(`${process.env.REACT_APP_API_URl}/Donors`, {
                 userid: formdata.userid,
                 name: formdata.name,
                 mobile: formdata.mobile,
