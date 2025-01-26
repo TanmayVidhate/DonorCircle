@@ -150,7 +150,7 @@ function EditInfo() {
 
                 </div>
 
-                <House size={50} className="fixed right-0 bottom-0 hover:scale-125 duration-300"
+                <House size={50} className="fixed right-10 bottom-10 hover:scale-125 duration-300"
                     onClick={() => {
                         navigate("/")
                     }}
